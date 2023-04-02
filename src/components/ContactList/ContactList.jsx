@@ -1,8 +1,9 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import css from './contactList.module.css';
 import ContactItem from './ContactItem';
-import { PropTypes } from 'prop-types';
 
-const ContactList = ({ contacts, onRemove }) => {
+function ContactList({ contacts, onRemove }) {
   return (
     <ul className={css.container}>
       {contacts.map(({ id, name, number }) => (
@@ -16,7 +17,8 @@ const ContactList = ({ contacts, onRemove }) => {
       ))}
     </ul>
   );
-};
+}
+
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.exact({
@@ -27,4 +29,5 @@ ContactList.propTypes = {
   ),
   onRemove: PropTypes.func.isRequired,
 };
+
 export default ContactList;
